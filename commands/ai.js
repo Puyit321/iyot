@@ -29,7 +29,7 @@ module.exports = {
         if (!message) return api.sendMessage("Please provide your question.\n\nExample: G4 What is the solar system?", threadID, messageID);
 
         api.sendMessage(
-            "💬 Responding...",
+            "💬 Homer AI Bot Responding...",
             threadID,
             async (err, info) => {
                 if (err) return;
@@ -45,7 +45,7 @@ module.exports = {
 
                             if (vision) {
                                 return api.editMessage(
-                                    `🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n━━━━━━━━━━━━━━━━━━\n${vision}\n━━━━━━━━━━━━━━━━━━`,
+                                    `•| 𝙷𝙾𝙼𝙴𝚁 𝙰𝙸 𝙱𝙾𝚃  |•\n\n${vision}\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`,
                                     info.messageID
                                 );
                             } else {
@@ -56,7 +56,7 @@ module.exports = {
 
                     const response = await gptConvoAPI(message, senderID);
                     api.editMessage(
-                        `🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n━━━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━━━`,
+                        `•| 𝙷𝙾𝙼𝙴𝚁 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${response}\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`,
                         info.messageID,
                         threadID,
                         messageID
