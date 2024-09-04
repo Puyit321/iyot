@@ -31,7 +31,7 @@ module.exports = {
         }
 
         api.sendMessage(
-            "🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n\n" +
+            "Homer AI Bot\n\n" +
             "💬 Responding..." +
             '\n\n[ Type "Clear" to reset conversation ]',
             threadID,
@@ -40,7 +40,7 @@ module.exports = {
                 try {
                     const response = await aic(prompt, senderID);
                     api.editMessage(
-                        "🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n\n" +
+                        "Homer AI Bot\n\n" +
                         response +
                         "\n\n[ Reply This Chat to Continue ]",
                         info.messageID
