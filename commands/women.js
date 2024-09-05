@@ -12,7 +12,7 @@ module.exports = {
 
     if (lowerCaseBody.includes('women') || lowerCaseBody.includes('babae')) {
       const msg = {
-        body: "Pogi kung owner Joshua🥹",
+        body: "Pogi kung owner Homer Rebatis🥹",
         attachment: fs.createReadStream(__dirname + `/noprefix/Women.mp4`)
       };
 
