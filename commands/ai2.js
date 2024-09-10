@@ -11,7 +11,7 @@ async function aic(q, uid) {
 }
 
 module.exports = {
-    name: "g2",
+    name: "ai2",
     description: "Talk to GPT4 (conversational)",
     nashPrefix: false,
     version: "1.0.2",
