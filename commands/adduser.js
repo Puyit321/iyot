@@ -11,7 +11,7 @@ module.exports = {
 
         if (!uid) {
             return api.sendMessage(
-                "🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n\n" +
+                "BOGART AI BOT\n\n" +
                 "⚠️Provide UID to Add.\n\nExample: adduser 1234567890",
                 threadID,
                 messageID
@@ -28,7 +28,7 @@ module.exports = {
                 try {
                     await api.addUserToGroup(uid, threadID);
                     api.editMessage(
-                        "🎀 𝗚𝗘𝗢 𝗧𝗘𝗖𝗛 𝗔𝗜69 🎀\n\n" +
+                        "BOGART AI BOT\n\n" +
                         "✅ User Added successfully!",
                         info.messageID
                     );
