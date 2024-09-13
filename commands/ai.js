@@ -29,7 +29,7 @@ module.exports = {
         if (!message) return api.sendMessage("Please provide your question.\n\nExample: ai What is the solar system?", threadID, messageID);
 
         api.sendMessage(
-            "💬 Homer AI Bot Responding...",
+            "•| 𝙷𝙾𝙼𝙴𝚁 𝙰𝙸 𝙱𝙾𝚃 |•\n\n💬 Homer AI Bot Responding...\n\n•|",
             threadID,
             async (err, info) => {
                 if (err) return;
