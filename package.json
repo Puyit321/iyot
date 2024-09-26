@@ -141,7 +141,7 @@
     "fast-uri": "^3.0.1",
     "fastq": "^1.17.1",
     "fca-deku": "^1.0.2",
-    "fca-unofficial": "^1.3.10",
+    "@xaviabot/fca-unofficial": "^1.3.10",
     "fetch-har": "^8.1.5",
     "figures": "^3.2.0",
     "file-type": "^16.5.4",
