@@ -1,388 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOMER AUTOBOT</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-  <style>
-    body {
-      padding: 20px;
-      background-color: #0e0e0e;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASH BOT</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #0e0e0e;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            height: 90vh;
+        }
 
-    .container {
-      max-width: 600px;
-      margin: 20px auto;
-      background-color: rgba(26, 26, 26, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
-      padding: 40px;
-      position: relative;
-    }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    h1, h2 {
-      color: #fff;
-      text-align: center;
-      margin: 0 0 20px;
-    }
+        h1 {
+            font-size: 1.6rem;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(#e1e1e1, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .version {
-      color: green;
-      font-size: 0.8rem;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
+        .version {
+            color: #ff4444;
+            font-size: 0.9rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
 
-    .guide-button {
-      background-color: #202023;
-      border: 2px solid transparent;
-      color: white;
-      padding: 12px 24px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-      display: block;
-      margin: 10px auto;
-    }
+        .guide-button {
+            background-color: #FF4848;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255, 72, 72, 0.4);
+        }
 
-    .guide-button:hover {
-      color: #000;
-      background-color: #fff;
-      border-color: #E0115F;
-      transform: scale(1.05);
-      animation: pulse 1s infinite;
-    }
+        .guide-button:hover {
+            background-color: #fff;
+            color: #FF4848;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 72, 72, 0.6);
+        }
 
-    .guide-section {
-      display: none;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
+        .guide-section {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ddd;
+        }
 
-    .guide-header {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 10px;
-    }
+        .guide-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FF4848;
+            margin-bottom: 15px;
+        }
 
-    .guide-content {
-      font-size: 1rem;
-      color: #ccc;
-    }
+        .guide-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-    .centered-textarea, .centered-input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      margin-bottom: 20px;
-      transition: border-color 0.3s ease;
-      box-sizing: border-box;
-      font-size: 1rem;
-    }
+        .form-container {
+            text-align: left;
+            text-align: center;
+        }
 
-    .centered-textarea {
-      height: 200px;
-    }
+        label {
+            font-size: 1rem;
+            font-weight: 50;
+            color: #bbb;
+            margin-bottom: 5px;
+            display: block;
+        }
 
-    .centered-textarea:focus, .centered-input:focus {
-      border-color: violet;
-    }
+        .centered-textarea,
+        .centered-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #666;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
 
-    .btn-primary {
-      background-color: #808080;
-      border: none;
-      color: #FF0000;
-      padding: 12px 24px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+        .centered-textarea {
+            height: 130px;
+            resize: none;
+        }
 
-    .btn-primary:hover {
-      background-color: #707070;
-    }
+        .centered-textarea:focus,
+        .centered-input:focus {
+            border-color: #ff4a4a;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
-    .footer {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      text-align: center;
-      font-size: 16px;
-      color: red;
-      border-top: 1px solid red;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-    }
+        .btn-primary {
+            background: linear-gradient(90deg, #ff4848, #ff8989);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+            border: none;
+        }
 
-    .footer p {
-      margin: 0;
-    }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(90deg, #ff8989, #ff4848);
+        }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-    .modal-content {
-      background-color: #333;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 800px;
-      border-radius: 10px;
-    }
+        .modal-content {
+            background-color: #333;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
 
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
+        .close {
+            color: #ff4444;
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-    .close:hover, .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
+        .command-item,
+        .session-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
 
-    .command-item, .session-item {
-      background-color: rgba(0, 0, 0, 0.6);
-      border: 1px solid #444;
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 10px;
-      transition: transform 0.3s ease;
-    }
+        .command-item:hover,
+        .session-item:hover {
+            transform: translateY(-5px);
+        }
 
-    .command-item:hover, .session-item:hover {
-      transform: translateY(-5px);
-    }
+        .command-name,
+        .session-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #00f;
+        }
 
-    .command-name, .session-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #00f;
-    }
+        .command-description,
+        .session-description {
+            font-size: 1rem;
+            color: #ccc;
+        }
 
-    .command-description, .session-description {
-      font-size: 1rem;
-      color: #ccc;
-    }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
 
-    .pagination {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
+        .pagination button {
+            background-color: #FF4848;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-    .pagination button {
-      background-color: #000;
-      border: none;
-      color: #FF0000;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+        .pagination button:hover {
+            background-color: #ff8989;
+        }
 
-    .pagination button:hover {
-      background-color: #707070;
-    }
-
-    .pagination button:disabled {
-      background-color: #808080;
-      cursor: not-allowed;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px;
-      }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <main class="container">
-    <h1>HOMER AUTOBOT</h1>
-    <span class="version">version 2.2</span>
-    <a href="#" class="guide-button" id="toggleGuide">Show Guide</a>
-    
-    <div id="guideSection" class="guide-section">
-      <div class="guide-header">Guide</div>
-      <div class="guide-content">
-        <p>Follow these steps to use HOMER AUTOBOT:</p>
-        <ol>
-          <li>
-            <strong>Obtain your App State:</strong> Go to kiwi browser and log in to your Facebook account. and go to c3c on extension and copy the appstate. 
-          </li>
-          <li>
-            <strong>Paste the App State:</strong> Paste the copied App State into the "Bot State" textarea below.
-          </li>
-          <li>
-            <strong>Enter Command Prefix:</strong> Type your preferred command prefix in the "Prefix" input field.
-          </li>
-          <li>
-            <strong>Login:</strong> Click the "Login" button to authenticate your bot using the provided App State and prefix.
-          </li>
-          <li>
-            <strong>View Commands & Sessions:</strong> Click the "Show Commands & Active Sessions" button to see available commands and active sessions.
-          </li>
-        </ol>
-      </div>
-    </div>
-    
-    <div class="form-container">
-      <form id="loginForm" class="login-form">
-        <label for="botState">Bot State:</label>
-        <textarea id="botState" class="centered-textarea" placeholder="Paste your Facebook app state here..." required></textarea>
+    <main class="container">
+        <h1>Welcome to NASHBOT</h1>
+        <span class="version">version 2.4.0</span>
+        <button class="guide-button" id="toggleGuide">Show Guide</button>
 
-        <label style="display:none;" for="prefix">Prefix: (example: /)</label>
-        <input style="display:none;" type="text" id="prefix" class="centered-input" value="/" placeholder="Enter command prefix..." required>
-
-        <button type="submit" class="btn-primary">Login</button>
-      </form>
-    </div>
-
-    <button id="openModal" class="btn-primary" style="margin-top: 20px;">Show Commands & Active Sessions</button>
-
-    <div id="commandModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Commands</h2>
-        <ul id="commands"></ul>
-        <div class="pagination">
-          <button id="prevPage" disabled>&laquo; Previous</button>
-          <button id="nextPage">Next &raquo</button>
+        <div id="guideSection" class="guide-section">
+            <div class="guide-header">How to Use NASHBOT</div>
+            <div class="guide-content">
+                <p>Steps to follow:</p>
+                <ol>
+                    <li><strong>Obtain your App State:</strong> Login to Facebook on Kiwi Browser and extract the appstate.</li>
+                    <li><strong>Paste App State:</strong> Paste it into the "Bot State" field below.</li>
+                    <li><strong>Enter Prefix:</strong> Provide a command prefix, e.g., /</li>
+                    <li><strong>Login:</strong> Click the Login button to authenticate.</li>
+                    <li><strong>View Commands & Sessions:</strong> Use the modal to explore.</li>
+                </ol>
+            </div>
         </div>
-        <h2 style="margin-top: 40px;">Active Sessions</h2>
-        <ul id="sessionList"></ul>
-      </div>
-    </div>
-  </main>
 
-  <div class="footer">
-    <p>&copy; 2024 Homer Rebatis. All rights reserved.</p>
-  </div>
+        <div class="form-container">
+            <form id="loginForm" class="login-form">
+                <label for="botState">Bot State:</label>
+                <textarea id="botState" class="centered-textarea" placeholder="Paste your app state here..." required></textarea>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginForm = document.getElementById('loginForm');
-      const botStateInput = document.getElementById('botState');
-      const prefixInput = document.getElementById('prefix');
-      const guideButton = document.getElementById('toggleGuide');
-      const guideSection = document.getElementById('guideSection');
-      const commandList = document.getElementById('commands');
-      const sessionList = document.getElementById('sessionList');
-      const commandModal = document.getElementById('commandModal');
-      const openModalButton = document.getElementById('openModal');
-      const closeModalButton = document.querySelector('.close');
+                <label for="prefix">Prefix:</label>
+                <input type="text" id="prefix" class="centered-input" placeholder="Enter command prefix..." required>
 
-      const prevPageButton = document.getElementById('prevPage');
-      const nextPageButton = document.getElementById('nextPage');
+                <label for="adminUID">Admin UID:</label>
+                <input type="text" id="adminUID" class="centered-input" placeholder="Enter admin user ID..." required>
 
-      let currentPage = 1;
-      const commandsPerPage = 5;
-      let commandsData = [];
-      
-      guideButton.addEventListener('click', () => {
+                <button type="submit" class="btn-primary">Login</button>
+                <center>
+                    <div id="countdownDisplay" style="display:none;"></div>
+                </center>
+            </form>
+        </div>
+
+        <button id="openModal" class="btn-primary" style="margin-top: 20px;">Show Commands</button>
+
+        <div id="commandModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Commands</h2>
+                <ul id="commands"></ul>
+                <div class="pagination">
+                    <button id="prevPage" disabled>&laquo; Previous</button>
+                    <button id="nextPage">Next &raquo</button>
+                </div>
+                <h2 style="margin-top: 40px;">Active Sessions</h2>
+                <ul id="sessionList"></ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById("loginForm");
+    const botStateInput = document.getElementById('botState');
+    const prefixInput = document.getElementById('prefix');
+    const adminUidInput = document.getElementById('adminUID');
+    const guideButton = document.getElementById('toggleGuide');
+    const guideSection = document.getElementById('guideSection');
+    const commandList = document.getElementById('commands');
+    const sessionList = document.getElementById('sessionList');
+    const commandModal = document.getElementById('commandModal');
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.querySelector('.close');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const prevPageButton = document.getElementById('prevPage');
+    const nextPageButton = document.getElementById('nextPage');
+
+    let currentPage = 1;
+    const commandsPerPage = 5;
+    let commandsData = [];
+    let isCooldown = false;
+    let countdownInterval;
+
+    guideButton.addEventListener('click', () => {
         if (guideSection.style.display === 'none' || guideSection.style.display === '') {
-          guideSection.style.display = 'block';
-          guideButton.textContent = 'Hide Guide';
+            guideSection.style.display = 'block';
+            guideButton.textContent = 'Hide Guide';
         } else {
-          guideSection.style.display = 'none';
-          guideButton.textContent = 'Show Guide';
+            guideSection.style.display = 'none';
+            guideButton.textContent = 'Show Guide';
         }
-      });
+    });
 
-      loginForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const botState = botStateInput.value.trim();
-        const prefix = prefixInput.value.trim();
-
-        if (!botState || !prefix) {
-          alert('Bot state and prefix are required.');
-          return;
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (isCooldown) {
+            return;
         }
+
+        // Disable the submit button immediately
+        submitButton.disabled = true;
+        isCooldown = true; // Set cooldown state
+
+        const botState = botStateInput.value;
+        const prefix = prefixInput.value;
+        const adminUID = adminUidInput.value;
 
         try {
-          const response = await fetch('/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ botState, prefix }),
-          });
+            const response = await fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    botState,
+                    prefix,
+                    adminUID
+                }),
+            });
 
-          if (!response.ok) {
-            throw new Error('Failed to login');
-          }
-          
-          botStateInput.value = '';
-          prefixInput.value = '';
-
-          alert('Logged in successfully!');
-          
-          fetchCommands();
-          fetchActiveSessions();
+            if (response.ok) {
+                document.cookie = "loggedIn=true; path=/; max-age=3600";
+                alert("Logged in successfully!");
+                botStateInput.value = "";
+                prefixInput.value = "";
+                adminUidInput.value = "";
+                startCooldown(15); // Start the cooldown timer
+            } else {
+                document.cookie = "loggedIn=; path=/; max-age=0";
+                alert("Failed to login.");
+            }
         } catch (error) {
-          console.error('Error logging in:', error);
-          alert('Failed to login. Please try again.');
+            console.error("Error:", error);
+            document.cookie = "loggedIn=; path=/; max-age=0";
         }
-      });
+    });
 
-      async function fetchCommands() {
+    function startCooldown(seconds) {
+        let timeLeft = seconds;
+        const countdownDisplay = document.getElementById("countdownDisplay");
+        countdownDisplay.style.display = 'block';
+        countdownDisplay.textContent = `Please wait ${timeLeft} seconds...`;
+
+        countdownInterval = setInterval(() => {
+            timeLeft--;
+            countdownDisplay.textContent = `Please wait ${timeLeft} seconds...`;
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                submitButton.disabled = false; // Enable the button after cooldown
+                countdownDisplay.style.display = 'none';
+                isCooldown = false; // Reset cooldown state
+            }
+        }, 1000);
+    }
+
+    async function fetchCommands() {
         try {
-          const response = await fetch('/commands');
-          if (!response.ok) {
-            throw new Error('Failed to fetch commands');
-          }
-          const commands = await response.json();
-          commandsData = Object.keys(commands).map((name) => ({
-            name,
-            description: commands[name].description,
-          }));
-          displayCommands();
+            const response = await fetch('/commands');
+            if (!response.ok) {
+                throw new Error('Failed to fetch commands');
+            }
+            const commands = await response.json();
+            commandsData = Object.keys(commands).map((name) => ({
+                name,
+                description: commands[name].description,
+            }));
+            displayCommands();
         } catch (error) {
-          console.error('Error fetching commands:', error);
-          alert('Failed to fetch commands. Please try again.');
+            console.error('Error fetching commands:', error);
+            alert('Failed to fetch commands. Please try again.');
         }
-      }
+    }
 
-      function displayCommands() {
+    function displayCommands() {
         commandList.innerHTML = '';
 
         const startIndex = (currentPage - 1) * commandsPerPage;
@@ -390,75 +403,77 @@
         const currentCommands = commandsData.slice(startIndex, endIndex);
 
         currentCommands.forEach((command) => {
-          const li = document.createElement('li');
-          li.className = 'command-item';
-          li.innerHTML = `
-            <div class="command-name">${command.name}</div>
-            <div class="command-description">${command.description}</div>
-          `;
-          commandList.appendChild(li);
+            const li = document.createElement('li');
+            li.className = 'command-item';
+            li.innerHTML = `
+                <div class="command-name">${command.name}</div>
+                <div class="command-description">${command.description}</div>
+            `;
+            commandList.appendChild(li);
         });
 
         prevPageButton.disabled = currentPage === 1;
         nextPageButton.disabled = endIndex >= commandsData.length;
-      }
+    }
 
-      prevPageButton.addEventListener('click', () => {
+    prevPageButton.addEventListener('click', () => {
         currentPage--;
         displayCommands();
-      });
+    });
 
-      nextPageButton.addEventListener('click', () => {
+    nextPageButton.addEventListener('click', () => {
         currentPage++;
         displayCommands();
-      });
+    });
 
-      async function fetchActiveSessions() {
+    async function fetchActiveSessions() {
         try {
-          const response = await fetch('/active-sessions');
-          if (!response.ok) {
-            throw new Error('Failed to fetch active sessions');
-          }
-          const sessions = await response.json();
-          displayActiveSessions(sessions);
+            const response = await fetch('/active-sessions');
+            if (!response.ok) {
+                throw new Error('Failed to fetch active sessions');
+            }
+            const sessions = await response.json();
+            displayActiveSessions(sessions);
         } catch (error) {
-          console.error('Error fetching active sessions:', error);
-          alert('Failed to fetch active sessions. Please try again.');
+            console.error('Error fetching active sessions:', error);
+            alert('Failed to fetch active sessions. Please try again.');
         }
-      }
+    }
 
-      function displayActiveSessions(sessions) {
+    function displayActiveSessions(sessions) {
         sessionList.innerHTML = '';
 
         Object.keys(sessions).forEach((uid) => {
-          const session = sessions[uid];
-          const li = document.createElement('li');
-          li.className = 'session-item';
-          li.innerHTML = `
-            <div class="session-name">UserID: ${session.userID}</div>
-            <div class="session-description">Prefix: ${session.prefix}</div>
-          `;
-          sessionList.appendChild(li);
+            const session = sessions[uid];
+            const li = document.createElement('li');
+            li.className = 'session-item';
+            li.innerHTML = `
+                <div class="session-name">UserID: ${session.userID}</div>
+                <div class="session-description">Prefix: ${session.prefix}</div>
+            `;
+            sessionList.appendChild(li);
         });
-      }
+    }
 
-      openModalButton.addEventListener('click', () => {
+    openModalButton.addEventListener('click', () => {
         commandModal.style.display = 'block';
-      });
-
-      closeModalButton.addEventListener('click', () => {
-        commandModal.style.display = 'none';
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target === commandModal) {
-          commandModal.style.display = 'none';
-        }
-      });
-
-      fetchCommands();
-      fetchActiveSessions();
     });
-  </script>
+
+    closeModalButton.addEventListener('click', () => {
+        commandModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === commandModal) {
+            commandModal.style.display = 'none';
+        }
+    });
+
+    fetchCommands();
+    fetchActiveSessions();
+});
+
+    </script>
 </body>
-</html>
+
+  </html>
